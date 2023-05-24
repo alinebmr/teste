@@ -60,6 +60,7 @@ body {
   font: 1.6rem/1.25 Arial, sans-serif;
   background-color: #aef3f5;
   color: #4d4d4d;
+
 }
 @media screen and (min-width: 620px) {
   body {
@@ -285,4 +286,8 @@ body {
 }
 .c-cb > input[type="checkbox"]:checked + label::after {
   opacity: 1;
+}
+
+#header{
+  margin-top: 8em;
 }

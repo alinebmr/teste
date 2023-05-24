@@ -5,6 +5,8 @@ import InvalidityMsg from "../../componentes/InvalidityMsg";
 import "./styles.css";
 import { validateEmail, validatePassword } from "../../util/validation";
 import api from "../../service";
+import HeaderLogin from "../../componentes/HeaderLogin";
+
 
 const Login = (props) => {
   // criando os estados
@@ -71,28 +73,32 @@ const Login = (props) => {
   };
 
   return (
-    <div id="login">
-      <div id="loginBox">
-        <span>Login</span>
-        <SignInput
-          value={email.value}
-          onChange={changeEmail}
-          label="Email"
-          type="email"
-        />
-        <InvalidityMsg msg={email.invalidity} />
-        <SignInput
-          value={password.value}
-          onChange={changePassword}
-          label="Senha"
-          type="password"
-        />
-        <InvalidityMsg msg={password.invalidity} />
-        <a href="/">Esqueceu sua senha?</a>
-        <SignButtom onClick={submit} text="ENTRAR" />
-        <a href="/signup">Cadastre-se</a>
+    <div id="header">
+       <HeaderLogin/>
+       <div id="login">
+          <div id="loginBox">
+            <span>Login</span>
+            <SignInput
+            value={email.value}
+            onChange={changeEmail}
+            label="Email"
+            type="email"
+            />
+           <InvalidityMsg msg={email.invalidity} />
+           <SignInput
+             value={password.value}
+             onChange={changePassword}
+             label="Senha"
+             type="password"
+           />
+           <InvalidityMsg msg={password.invalidity} />
+           <a href="/">Esqueceu sua senha?</a>
+           <SignButtom onClick={submit} text="ENTRAR" />
+           <a href="/signup">Cadastre-se</a>
+        </div>
       </div>
     </div>
+   
   );
 };
 

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Form from "../../componentes/Form/Form";
 import TodoItem from "../../componentes/Form/ToDoItem";
 import "./styles.css"
+import HeaderToDoList from "../../componentes/HeaderToDoList";
 
 export default function Home() {
   const [todos, setTodos] = useState([]);
@@ -19,7 +20,7 @@ export default function Home() {
     var todosArray = todos;
 
     for (var i in todosArray) {
-      if (todosArray[i].id == id) {
+      if (todosArray[i].id === id) {
         todosArray[i].text = editedText;
       }
     }
@@ -31,16 +32,20 @@ export default function Home() {
   };
 
   return (
-        <Container maxWidth="xs" style={{ marginTop: "1em" }}>
-        <Form addTodo={addTodo} />
-        <List sx={{ marginTop: "1em" }}>
-        {todos.map((todo) => (
+        <div id="header">
+          <HeaderToDoList/>
+          <Container maxWidth="xs" style={{ marginTop: "1em" }}>
+          <Form addTodo={addTodo} />
+          <List sx={{ marginTop: "1em" }}>
+          {todos.map((todo) => (
         <div key={todo.id} style={{ marginTop: "1em" }}>
             <TodoItem editTodo={editTodo} todo={todo} deleteTodo={deleteTodo} />
         </div>
         ))}
         </List>
         </Container>
+        </div>
+        
    
   );
 }

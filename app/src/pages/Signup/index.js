@@ -2,6 +2,7 @@ import { useState } from "react";
 import SignupInput from "../../componentes/SignupInput";
 import SignButtom from "../../componentes/SignButton";
 import "./styles.css";
+import HeaderSignup from "../../componentes/HeaderSignup";
 
 const Signup = (props) => {
     const [email, setEmail] = useState({value: ""});
@@ -44,10 +45,10 @@ const submit = () =>{
 
 };
 
-
-
-   return (
-        <div id="signup">
+    return (
+        <div id="header">
+            <HeaderSignup/>
+            <div id="signup">
             <div id="signupBox">
                 <span>Cadastro</span>
                 <SignupInput
@@ -83,6 +84,8 @@ const submit = () =>{
                  <SignButtom onClick={submit} text="FINALIZAR CADASTRO" />
             </div>
         </div>
+        </div>
+        
     );
 };
 

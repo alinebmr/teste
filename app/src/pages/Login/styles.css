@@ -9,13 +9,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 25%;
+    width: 50%;
     background-color: #ffffff;
     border: 1px solid #a1a1a1;
     box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     margin: 20px 10px;
     padding: 15px;
+  
   }
   
   #loginBox span {
@@ -26,4 +27,8 @@
   #loginBox a {
     font-weight: 400;
     margin-top: 10px;
+  }
+
+  #header {
+    margin-top: 8em;
   }
