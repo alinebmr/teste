@@ -2,86 +2,86 @@ import { useState } from "react";
 import SignupInput from "../../componentes/SignupInput";
 import SignButtom from "../../componentes/SignButton";
 import "./styles.css";
-import HeaderSignup from "../../componentes/HeaderSignup";
+import { Link, useNavigate } from "react-router-dom";
+import HeaderSignup from "../../componentes/Header Signup";
+import useAuth from "../../hooks/useAuth";
 
 const Signup = (props) => {
     const [email, setEmail] = useState({value: ""});
+    const [emailConf, setEmailConf] = useState("");
     const [password, setPassword] = useState({value:""});
     const [name, setName] = useState({value:""});
     const [age, setAge] = useState({value:""});
     const [gender, setGender] = useState({value:""});
+    const [error, setError] = useState({value:""});
+    const navigate = useNavigate();
+    const { signup } = useAuth;
 
+const handleSignup = () => {
+    if (!email | !emailConf | !password) {
+      setError("Preencha todos os campos");
+      return;
+    } else if (email !== emailConf) {
+      setError("Os e-mails não são iguais");
+      return;
+    }
 
-const changeEmail = (e) => {
-    const value = e.target.value;
+    const res = signup(email, password);
 
-    setEmail({ ...email, value });
+    if (res) {
+      setError(res);
+      return;
+    }
 
-};
+    alert("Usuário cadatrado com sucesso!");
+    navigate("/todolist");
+  };
 
-const changePassword = (e) => {
-    const value = e.target.value;
-
-    setPassword({ ...email, value });
-};
-
-const changeName = (e) => {
-    const value = e.target.value;
-    setName({ ...email, value });
-};
-
-const changeAge = (e) => {
-    const value = e.target.value;
-    setAge({ ...email, value });
-};
-
-const changeGender = (e) => {
-    const value = e.target.value;
-
-    setGender({ ...email, value });
-};
-
-const submit = () =>{
-
-};
 
     return (
         <div id="header">
             <HeaderSignup/>
-            <div id="signup">
+            <div id="signupstart">
             <div id="signupBox">
                 <span>Cadastro</span>
                 <SignupInput
-                value={email.value}
-                onChange={changeEmail}
-                label= "Email"
                 type="email"
+                label="Digite seu E-mail"
+                value={email.value}
+                onChange={(e) => [setEmail(e.target.value), setError("")]}
                 />
                 <SignupInput
-                value={password.value}
-                onChange={changePassword}
-                label= "Senha"
+                type="emailconf"
+                label="Confirme seu E-mail"
+                value={emailConf.value}
+                onChange={(e) => [setEmailConf(e.target.value), setError("")]}
+                />
+                <SignupInput
                 type="password"
+                label="Digite sua Senha"
+                value={password.value}
+                onChange={(e) => [setPassword(e.target.value), setError("")]}
                 />
                 <SignupInput
-                value={name.value}
-                onChange={changeName}
-                label= "Nome"
                 type="name"
+                label="Digite seu Nome Completo"
+                value={name.value}
+                onChange={(e) => [setName(e.target.value), setError("")]}
                 />
                 <SignupInput
-                value={age.value}
-                onChange={changeAge}
-                label="Idade"
                 type="age"
+                label="Digite sua Idade"
+                value={age.value}
+                onChange={(e) => [setAge(e.target.value), setError("")]}
                 />
                 <SignupInput
-                value={gender.value}
-                onChange={changeGender}
-                label="Gênero"
                 type="gender"
+                label="Digite seu gênero"
+                value={gender.value}
+                onChange={(e) => [setGender(e.target.value), setError("")]}
                 />
-                 <SignButtom onClick={submit} text="FINALIZAR CADASTRO" />
+                <a href="/login">Já tem uma conta?</a>
+                <SignButtom onClick={handleSignup} text="FINALIZAR CADASTRO" />
             </div>
         </div>
         </div>

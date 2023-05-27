@@ -4,8 +4,13 @@ import Form from "../../componentes/Form/Form";
 import TodoItem from "../../componentes/Form/ToDoItem";
 import "./styles.css"
 import HeaderToDoList from "../../componentes/HeaderToDoList";
+import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router";
+import SignButtom from "../../componentes/SignButton";
 
-export default function Home() {
+export default function ToDoList() {
+  const {signout} = useAuth;
+  const navigate = useNavigate;
   const [todos, setTodos] = useState([]);
   const addTodo = (todo) => {
     setTodos([...todos, todo]);
@@ -34,6 +39,10 @@ export default function Home() {
   return (
         <div id="header">
           <HeaderToDoList/>
+        
+          <SignButtom  Text="Sair" onClick={() => [signout(), navigate("/")]}>
+            Sair
+          </SignButtom>
           <Container maxWidth="xs" style={{ marginTop: "1em" }}>
           <Form addTodo={addTodo} />
           <List sx={{ marginTop: "1em" }}>

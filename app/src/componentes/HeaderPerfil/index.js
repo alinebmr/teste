@@ -4,10 +4,9 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import "./styles.css"
 
-export default function HeaderToDoList() {
+export default function HeaderPerfil() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar>
@@ -15,11 +14,9 @@ export default function HeaderToDoList() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             My ToDoList
           </Typography>
-          <Button href='/perfil' color='inherit'>
-          <AccountCircle/>
-          </Button>
+          <Button href='/todolist' color='inherit'>MyList</Button>
           <Button href='/' color="inherit">Home</Button>
-          <Button href='/' color="inherit">Sair</Button>
+          <Button  color="inherit">Logout</Button>
         </Toolbar>
       </AppBar>
     </Box>

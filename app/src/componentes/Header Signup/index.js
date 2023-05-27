@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import "./styles.css"
 
 export default function HeaderSignup() {
   return (
@@ -14,7 +15,7 @@ export default function HeaderSignup() {
             My ToDoList
           </Typography>
           <Button href='/login' color='inherit'>Login</Button>
-          <Button href='/home' color="inherit">Home</Button>
+          <Button href='/' color="inherit">Home</Button>
         </Toolbar>
       </AppBar>
     </Box>

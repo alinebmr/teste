@@ -57,7 +57,7 @@ const Login = (props) => {
           // salvando os dados do usuario
           localStorage.setItem("user", JSON.stringify(response));
           // redirecionando para tela Home
-          props.history.push("/home");
+          props.history.push("/");
         })
         .catch((error) => {
           console.log(error.response);
@@ -93,8 +93,7 @@ const Login = (props) => {
            />
            <InvalidityMsg msg={password.invalidity} />
            <a href="/">Esqueceu sua senha?</a>
-           <SignButtom onClick={submit} text="ENTRAR" />
-           <a href="/signup">Cadastre-se</a>
+           <SignButtom onClick={submit} text="ENTRAR" /> 
         </div>
       </div>
     </div>

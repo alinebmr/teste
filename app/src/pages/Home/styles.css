@@ -1,3 +1,25 @@
 #header {
-    margin-top: 8em;
+    margin-top: 5em;
+}
+
+#homebox{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4em;
+
+}
+
+body {
+    background-color: gainsboro;
+}
+
+#image img{
+    width: 500px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
