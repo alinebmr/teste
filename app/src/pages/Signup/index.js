@@ -26,12 +26,12 @@ const handleSignup = () => {
       return;
     }
 
-    const res = signup(email, password);
+    // const res = signup(email, password);
 
-    if (res) {
-      setError(res);
-      return;
-    }
+    // if (res) {
+    //   setError(res);
+    //   return;
+    // }
 
     alert("Usuário cadatrado com sucesso!");
     navigate("/todolist");
